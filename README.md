@@ -24,7 +24,7 @@ To get up and running, first create an SQL database on your machine with the nam
 
 ### Curl Client   
 #### Create a Customer   
-'''
+```
 curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{
 "name" = "John Smith",
 "email" = "john@smith.com",
@@ -34,6 +34,6 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 '''
 
 ### Create a Current Account   
-'''
+```
 curl -X POST -H "Accept: application/json" -d '3' "http://127.0.0.1:8080/api/customer/create"
 '''
