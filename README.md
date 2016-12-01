@@ -3,11 +3,11 @@
 
 ### To Do
 ### Web service    
-- [ ] Create WebService environment  
-- [ ] Create Account Model  
-- [ ] Create Customer Model  
+- [x] Create WebService environment  
+- [x] Create Account Model  
+- [x] Create Customer Model  
 - [ ] Create Transaction Model  
-- [ ] Create Account (POST)  
+- [x] Create Account (POST)  
 - [ ] Make a Lodgement (POST/PUT?)   
 - [ ] Transfer (POST)  
 - [ ] Withdrawal (POST)  
