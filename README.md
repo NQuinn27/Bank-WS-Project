@@ -31,9 +31,9 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 "password" = "password",
 "address" = "dublin"
 }' "http://127.0.0.1:8080/api/customer/create"
-'''
+```
 
 ### Create a Current Account   
 ```
 curl -X POST -H "Accept: application/json" -d '3' "http://127.0.0.1:8080/api/customer/create"
-'''
+```
