@@ -1,2 +1,10 @@
 
 .DS_Store
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+GroupGBankApp/src/main/webapp/WEB-INF/classes/META-INF/persistence.xml
