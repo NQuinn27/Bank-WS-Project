@@ -6,9 +6,9 @@
 - [x] Create WebService environment  
 - [x] Create Account Model  
 - [x] Create Customer Model  
-- [ ] Create Transaction Model  
+- [x] Create Transaction Model  
 - [x] Create Account (POST)  
-- [ ] Make a Lodgement (POST/PUT?)   
+- [x] Make a Lodgement (POST)   
 - [ ] Transfer (POST)  
 - [ ] Withdrawal (POST)  
 - [ ] Balance (GET)  
@@ -36,4 +36,22 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 ### Create a Current Account   
 ```
 curl -X POST -H "Accept: application/json" -d '3' "http://127.0.0.1:8080/api/customer/create"
+```   
+
+### Make A Lodgement   
 ```
+curl -X POST -H "Content-Type: application/json" -d '{
+	"accountId" = "3",
+	"cardNumber" = "1234567890",
+	"cardCVV" = "353",
+	"cardExpiryDate" = "22/09",
+	"amount" = "500.00"
+}' "http://127.0.0.1:8080/api/transaction/lodgement"
+```
+
+### CHANGELOG
+**December 2** *Niall Quinn*  
+Updated the Account Resource to generate a random account number of 9 digits long. The database is checked to ensure that this account number does not exist, however unlikely that may be.  
+
+**December 1** *Niall Quinn*
+Added the Transaction Model and functionality. Transaction covers Lodgement and Withdrawal, differentiated by the TransactionType enum. When a transaction is made via the API, a transaction entry is committed to the database. After this the account service attempts to process the transaction by deducting or incrementing the balance of the account. After this the transaction is marked as processed. The transaction table can be queried by Account ID to retrieve a list of transactions for an account. Lodgement curl code above.
