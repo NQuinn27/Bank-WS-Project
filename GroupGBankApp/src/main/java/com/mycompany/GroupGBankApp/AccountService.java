@@ -69,6 +69,14 @@ public class AccountService {
         return test;
     } 
      
+    public Account findWithAccountNumber(int accountNumber) {
+        return (Account) em.createQuery(
+        "SELECT a FROM Account a WHERE a.accountNumber EQUALS :accountNumber")
+        .setParameter("accountNumber", accountNumber)
+        .setMaxResults(1)
+        .getSingleResult();  
+    }
+     
     public boolean addBalance(Double amount, int accountId) {
         Account ac = em.find(Account.class, accountId);
         if (ac == null) {

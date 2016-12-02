@@ -7,6 +7,7 @@
 package com.mycompany.GroupGBankApp;
 
 import com.google.gson.Gson;
+import static java.lang.Math.random;
 import java.util.List;
 import java.util.Random;
 import javax.ws.rs.Consumes;
@@ -54,7 +55,11 @@ public class AccountResource {
         //Account jobj = new Gson().fromJson(a, Account.class);
         String sortCode = "IEBICXX";
         Random rand = new Random();
-        int accNum = rand.nextInt(10);
+        int accNum = 100000000 + rand.nextInt(900000000);
+        //Check for uniqueness
+        while (new AccountService().findWithAccountNumber(accNum) != null) {
+            accNum = 100000000 + rand.nextInt(900000000);
+        }
         Double currBal = 0.0;
         String accType = "Current";
         int custId = Integer.parseInt(input);
@@ -72,7 +77,11 @@ public class AccountResource {
         //Account jobj = new Gson().fromJson(a, Account.class);
         String sortCode = "IEBICXX";
         Random rand = new Random();
-        int accNum = rand.nextInt(10);
+        int accNum = 100000000 + rand.nextInt(900000000);
+        //Check for uniqueness
+        while (new AccountService().findWithAccountNumber(accNum) != null) {
+            accNum = 100000000 + rand.nextInt(900000000);
+        }
         Double currBal = 0.0;
         String accType = "Savings";
         int custId = Integer.parseInt(input);
