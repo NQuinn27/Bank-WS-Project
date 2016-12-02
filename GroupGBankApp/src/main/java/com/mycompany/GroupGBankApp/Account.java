@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table
 @XmlRootElement
-public class Account implements Serializable{
+public class Account implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -93,8 +93,5 @@ public class Account implements Serializable{
     public Double getCurrentBalance() {
         return currentBalance;
     }
-    
-    
-
-    
+        
 }

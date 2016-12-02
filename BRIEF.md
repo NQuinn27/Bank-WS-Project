@@ -10,7 +10,7 @@ Online Banking is a mainstream service offered by most banks today. A typical co
 ### Create  
 Customers should be able to create an account with the bank, and a customer who has an account should be able to add additional accounts. For example a typical customer may have a current account and a savings account.  
 
-### Lodgment  
+### Lodgement  
 For the lodgment, a bank customer can specify the amount to lodge with the credit card that will be debited.  
 
 ### Transfer   

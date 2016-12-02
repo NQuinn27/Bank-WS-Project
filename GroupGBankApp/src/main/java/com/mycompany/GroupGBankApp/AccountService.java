@@ -63,10 +63,38 @@ public class AccountService {
         return allQuery.getResultList();
     }
     
-      public Account retrieveAccount(int id) {
+     public Account retrieveAccount(int id) {
         Account test = em.find(Account.class, id);
         em.close();
         return test;
-    }      
+    } 
+     
+    public boolean addBalance(Double amount, int accountId) {
+        Account ac = em.find(Account.class, accountId);
+        if (ac == null) {
+            return false;
+        }
+        Double bal = ac.getCurrentBalance();
+        bal = bal + amount;
+        ac.setCurrentBalance(bal);
+        tx.begin();
+        em.persist(ac);
+        tx.commit();
+        em.close();
+        return true;
+    }
+    
+    public boolean deductBalance(Double amount, int accountId) {
+        Account ac = em.find(Account.class, accountId);
+        if (ac == null) return false;
+        Double bal = ac.getCurrentBalance();
+        bal -= amount;
+        ac.setCurrentBalance(bal);
+        tx.begin();
+        em.persist(ac);
+        tx.commit();
+        em.close();
+        return true;
+    }
     
 }
