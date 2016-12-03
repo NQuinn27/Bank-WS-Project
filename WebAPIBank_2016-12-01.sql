@@ -74,6 +74,25 @@ VALUES
 /*!40000 ALTER TABLE `Customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
+# Dump of table Transaction
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Transaction`;
+
+CREATE TABLE `Transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` int(11) DEFAULT NULL,
+  `accountId` int(11) DEFAULT NULL,
+  `cardNumber` varchar(200) DEFAULT NULL,
+  `cardCVV` int(11) DEFAULT NULL,
+  `cardExpiry` varchar(200) DEFAULT NULL,
+  `processed` tinyint(1) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `Transaction` WRITE;
+
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
