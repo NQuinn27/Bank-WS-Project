@@ -21,8 +21,8 @@ import javax.ws.rs.core.MediaType;
  * @author Eoin
  */
 @Path("/customer")
-public class CustomerResource {
-    Gson gson = new Gson();
+public class CustomerResource { 
+   Gson gson = new Gson();
     
     CustomerService cust = new CustomerService();
     

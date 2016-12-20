@@ -25,7 +25,7 @@ public class Transaction implements Serializable{
     private int id;
     
     public enum TransactionType {
-        LODGEMENT, WITHDRAWAL 
+        LODGEMENT, WITHDRAWAL, TRANSFER
     }
 
     private TransactionType type;
@@ -35,10 +35,12 @@ public class Transaction implements Serializable{
     private String cardExpiry;
     private boolean processed;
     private Double amount;
-    
+    private int toAccountId;
+
+
     public Transaction () {}
 
-    public Transaction(TransactionType type, int accountId, String cardNumber, int cardCVV, String cardExpiry, Double amount) {
+    public Transaction(TransactionType type, int accountId, String cardNumber, int cardCVV, String cardExpiry, Double amount, int toAccountId) {
         this.type = type;
         this.accountId = accountId;
         this.cardNumber = cardNumber;
@@ -46,7 +48,17 @@ public class Transaction implements Serializable{
         this.cardExpiry = cardExpiry;
         this.processed = false;
         this.amount = amount;
+        this.toAccountId = toAccountId;
     }
+    
+        public int getToAccountId() {
+        return toAccountId;
+    }
+
+    public void setToAccountId(int toAccountId) {
+        this.toAccountId = toAccountId;
+    }
+    
     
     public int getId() {
         return id;

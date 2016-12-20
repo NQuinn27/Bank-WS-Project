@@ -67,6 +67,9 @@ public class TransactionService {
             case WITHDRAWAL:
                 as.deductBalance(t.getAmount(), t.getAccountId());
                 break;
+            case TRANSFER:
+                as.transfer(t.getAmount(), t.getAccountId(), t.getToAccountId());
+                break;
         }
         t.setIsProcessed(true);
         tx.begin();
