@@ -48,7 +48,7 @@ public class AccountResource {
     
     @POST
     @Path("/createCurrentAccount")
-    //@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Account createCurrAccount(String input) {
         System.out.println(input);
