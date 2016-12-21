@@ -48,7 +48,7 @@ public class CustomerResource {
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Customer createCust(String c) {
-        //System.out.println(input);
+        System.out.println(c);
         Customer jobj = new Gson().fromJson(c, Customer.class);
         Customer customer = new Customer(jobj.getName(),jobj.getAddress(),jobj.getEmail(),jobj.getPassword());
         
