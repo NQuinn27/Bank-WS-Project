@@ -79,9 +79,9 @@ public class AccountResource {
         Random rand = new Random();
         int accNum = 100000000 + rand.nextInt(900000000);
         //Check for uniqueness
-        while (new AccountService().findWithAccountNumber(accNum) != null) {
-            accNum = 100000000 + rand.nextInt(900000000);
-        }
+        //while (new AccountService().findWithAccountNumber(accNum) != null) {
+        //    accNum = 100000000 + rand.nextInt(900000000);
+        //}
         Double currBal = 0.0;
         String accType = "Savings";
         int custId = Integer.parseInt(input);

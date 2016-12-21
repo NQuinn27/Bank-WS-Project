@@ -71,7 +71,7 @@ public class AccountService {
      
     public Account findWithAccountNumber(int accountNumber) {
         return (Account) em.createQuery(
-        "SELECT a FROM Account a WHERE a.accountNumber EQUALS :accountNumber")
+        "SELECT 1 FROM Account a WHERE a.accountNum = :accountNumber")
         .setParameter("accountNumber", accountNumber)
         .setMaxResults(1)
         .getSingleResult();  
@@ -101,6 +101,33 @@ public class AccountService {
         tx.begin();
         em.persist(ac);
         tx.commit();
+        em.close();
+        return true;
+    }
+    
+    public boolean transfer(Double amount, int accountId, int toAccountId) {
+        //deduct balance
+        Account ac = em.find(Account.class, accountId);
+        if (ac == null) return false;
+        Double bal = ac.getCurrentBalance();
+        bal -= amount;
+        ac.setCurrentBalance(bal);
+        tx.begin();
+        em.persist(ac);
+
+
+        //add balance
+        Account ad = em.find(Account.class, toAccountId);
+        if (ad == null) {
+            return false;
+        }
+        Double bal2 = ad.getCurrentBalance();
+        bal2 = bal2 + amount;
+        ad.setCurrentBalance(bal2);
+        em.persist(ad);
+        tx.commit();
+        
+        
         em.close();
         return true;
     }
