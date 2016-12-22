@@ -57,9 +57,9 @@ public class AccountResource {
         Random rand = new Random();
         int accNum = 100000000 + rand.nextInt(900000000);
         //Check for uniqueness
-        while (new AccountService().findWithAccountNumber(accNum) != null) {
-            accNum = 100000000 + rand.nextInt(900000000);
-        }
+        //while (new AccountService().findWithAccountNumber(accNum) != null) {
+        //    accNum = 100000000 + rand.nextInt(900000000);
+        //}
         Double currBal = 0.0;
         String accType = "Current";
         int custId = Integer.parseInt(input);
@@ -88,6 +88,13 @@ public class AccountResource {
         Account account = new Account(sortCode,accNum,currBal,accType, custId);
         
         return acc.addCurrentAccount(account);
+    }
+    
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getBalance/{id}")
+    public String getBalance(@PathParam("id") int id) {
+        return acc.getBalance(id);
     }
     
 }

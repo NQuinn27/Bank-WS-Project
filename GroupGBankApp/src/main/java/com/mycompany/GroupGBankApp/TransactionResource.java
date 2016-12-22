@@ -99,7 +99,7 @@ public class TransactionResource {
         transactionService.processTransaction(c.getId());
         return Response
                 .status(200)
-                .entity(transaction).build();
+                .entity(gson.toJson(transaction)).build();
         
     }
 }

@@ -45,6 +45,10 @@ public class Account implements Serializable {
         this.customerId = customerId;
     
     }
+    
+    public Account(Double currentBalance){
+        this.currentBalance = currentBalance;
+    }
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;

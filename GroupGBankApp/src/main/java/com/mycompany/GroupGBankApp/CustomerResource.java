@@ -45,8 +45,8 @@ public class CustomerResource {
     
     @POST
     @Path("/create")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes( {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces( {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Customer createCust(String c) {
         //System.out.println(input);
         Customer jobj = new Gson().fromJson(c, Customer.class);

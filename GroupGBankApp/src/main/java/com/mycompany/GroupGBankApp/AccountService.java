@@ -6,6 +6,7 @@
 
 package com.mycompany.GroupGBankApp;
 
+import com.google.gson.Gson;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,6 +23,7 @@ import javax.persistence.criteria.Root;
  */
 public class AccountService {
     
+    private Gson gson = new Gson();
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("Customer");
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction tx = em.getTransaction();  
@@ -130,6 +132,16 @@ public class AccountService {
         
         em.close();
         return true;
+    }
+    
+    public String getBalance(int accountId){
+        Account ac = em.find(Account.class, accountId);
+        if (ac == null) return null;
+        Double bal = ac.getCurrentBalance();
+        Account newAcc = new Account(bal);
+        String test = new Gson().toJson(newAcc);
+        em.close();
+        return test;
     }
     
 }
