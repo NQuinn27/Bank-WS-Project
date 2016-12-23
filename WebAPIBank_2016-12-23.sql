@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.38)
 # Database: WebAPIBank
-# Generation Time: 2016-12-01 19:32:19 +0000
+# Generation Time: 2016-12-23 17:57:54 +0000
 # ************************************************************
 
 
@@ -33,20 +33,8 @@ CREATE TABLE `Account` (
   `accountType` varchar(200) DEFAULT NULL,
   `customerId` int(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `Account` WRITE;
-/*!40000 ALTER TABLE `Account` DISABLE KEYS */;
-
-INSERT INTO `Account` (`id`, `sortCode`, `accountNum`, `currentBalance`, `accountType`, `customerId`)
-VALUES
-	(1,'test232',1245,23100,'Savings',NULL),
-	(2,'anothertes232',8154846,11000.76,'Current',NULL),
-	(3,'test3!',648615612,58916.56,'Current',NULL),
-	(4,'IEBICXX',7,0,'Current',1);
-
-/*!40000 ALTER TABLE `Account` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table Customer
@@ -61,18 +49,9 @@ CREATE TABLE `Customer` (
   `email` varchar(200) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `Customer` WRITE;
-/*!40000 ALTER TABLE `Customer` DISABLE KEYS */;
 
-INSERT INTO `Customer` (`id`, `name`, `address`, `email`, `password`)
-VALUES
-	(1,'Eoin Sutton','swords, dublin','eoin.sutton@live.com','testpassword'),
-	(2,'EoinTestNew','swords!','test@test.com','password');
-
-/*!40000 ALTER TABLE `Customer` ENABLE KEYS */;
-UNLOCK TABLES;
 
 # Dump of table Transaction
 # ------------------------------------------------------------
@@ -88,10 +67,10 @@ CREATE TABLE `Transaction` (
   `cardExpiry` varchar(200) DEFAULT NULL,
   `processed` tinyint(1) DEFAULT NULL,
   `amount` double DEFAULT NULL,
+  `toAccountId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `Transaction` WRITE;
 
 
 
